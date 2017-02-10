@@ -232,4 +232,4 @@
     }
 
 6. ##### 测试结果
-   ![amWiki logo](https://qingpeng911.github.io/amWiki/images/articel/excel_test.png)  
+   ![amWiki logo](https://qingpeng911.github.io/amWiki/images/article/excel_test.png)  
