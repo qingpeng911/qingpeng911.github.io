@@ -1,13 +1,9 @@
-# Spring boot + spring AOP 实现拦截器打印日志
+# SpringData mongodb group聚合查询
 
-1. ##### 准备工作：加入依赖的jar包
-   ```java
-   <dependency>  
-    <groupId>org.springframework.boot</groupId>  
-    <artifactId>spring-boot-starter-aop</artifactId>  
-   </dependency>
-   ```
-   如果不支持maven,可以直接从这里下载 [ [下载jar包](http://mvnrepository.com/search?q=spring-boot-starter-aop) ]
+1. ##### 前言
+   由于最近系统的数据量激增，导致后台查询速度变慢，所以决定对现有的一些查询语句进行优化。检查了一下代码，发现以前的代码里很多都是一个请求里执行了很多条查询，所以想改成分组聚合减少查询语句，
+   分组聚合，即将查询对象按一定条件分组，然后对每一个组进行聚合分析。这样的好处在于可以显著减少所需执行查询语句，从而大大加快查询速度。
+   在以前用mysql时，有用过group by语句来实现聚合查询。同样mongodb也提供了group功能。
 
 2. ##### 创建一个拦截器类
     ```java
@@ -66,12 +62,3 @@
     	}
     }
     ```
-    需要特别注意的是：这里使用@Around注解修饰的方法doAround()必须得有一个返回值，我这里是返回的Object对象。不然在运行时会抛出一个空返回值的异常。
-    而使用使用 @Before @After 注解时则不需要返回。
-
-    添加好拦截器后，所有com.qp.service.log包的方法在执行时都会被这里定义的拦截器拦截，并执行doAround（）方法。
-
-3. ##### 测试
-   直接调用对应接口或单元测试如果控制台成功打印结果，则表示配置成功（为方便查看测试结果，可以去掉>50才打印日志这一条件）：
-       [INFO ][2017-02-06 13:04:51][pool-4-thread-1]com.qp.interceptor.LogInterceptor[50]-方法[countMaleViewRegMail]执行耗时：140ms
-       [INFO ][2017-02-06 13:04:51][pool-4-thread-1]com.qp.interceptor.LogInterceptor[50]-方法[countRegMaleViewSessionPerson]执行耗时：142ms
