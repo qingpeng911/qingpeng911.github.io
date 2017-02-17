@@ -25,3 +25,6 @@
 
 ##### spring data mongodb
 - [group聚合查询](?file=mongodb/SpringData mongodb group聚合查询 "group聚合查询")
+
+##### 实用技巧
+- [翻墙方法汇总（亲测可行）](?file=翻墙方法汇总（亲测可行） "翻墙方法汇总（亲测可行）")
