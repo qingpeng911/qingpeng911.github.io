@@ -199,7 +199,8 @@
     	public void excelTest() {
         //待导出的数据map,这里的key是导出excel表格多个sheet的名称
         Map<String, List<MyExcel>> map = new HashMap<>();
-
+        //封装数据 map
+        //...(省略)
         XSSFWorkbook workbook = new XSSFWorkbook();
         if (workbook != null) {
             ExcelUtil.createExcelWithMutiSheet(workbook, map);			
@@ -227,6 +228,6 @@
      	}
 
     }
-
+    ```
 6. ##### 测试结果
    ![amWiki logo](https://qingpeng911.github.io/amWiki/images/article/excel_test.png)  
