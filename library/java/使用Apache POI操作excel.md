@@ -45,96 +45,93 @@
     /**
      * 操作Excel的工具类
      */
-    public class ExcelUtil {
-    	private static final Log log = LogFactory.getLog(ExcelUtil.class);
+     public class ExcelUtil {
+     	private static final Log log = LogFactory.getLog(ExcelUtil.class);
 
-    	/**
-    	 * 创建多个Sheet的Excel
-    	 */
-    	public static void createExcelWithMutiSheet(Workbook workbook,Map<String, List<MyExcel>> map){
-    		for (Map.Entry<String, List<MyExcel>> entry : map.entrySet()) {
-    			createExcelWithSingleSheet(workbook, entry.getKey(), entry.getValue());
-    		}
-    	}
+     	/**
+     	 * 创建多个Sheet的Excel
+       * ? --> List<?>
+     	 */
+     	public static void createExcelWithMutiSheet(Workbook workbook, Map<String, ?> map) {
+     		for (Map.Entry<String, ?> entry : map.entrySet()) {
+     			try {
+     				createExcelWithSingleSheet(workbook, entry.getKey(), (List<?>)entry.getValue());
+     			} catch (Exception e) {
+     				throw new ParameterException("Map格式不正确", e);
+     			}
+     		}
+     	}
 
-    	/**
-    	 * 创建单个Sheet的Excel
-    	 */
-    	public static void createExcelWithSingleSheet(Workbook workbook,String sheetName,List<MyExcel> list) {
-    		//BUILD DOC
-    		Sheet sheet = workbook.createSheet(sheetName);
-    		sheet.setDefaultColumnWidth(28);
-    		int currentRow = 0;
-    		int currentColumn = 0;
-    		//CREATE STYLE FOR HEADER
-    		CellStyle headerStyle = workbook.createCellStyle();
-    	    Font font = workbook.createFont();
-    	    font.setBold(true);
-    	    font.setBoldweight(Font.BOLDWEIGHT_BOLD);
-    	    headerStyle.setFont(font);
-    	    //POPULATE HEADER COLUMNS
-    	    Row headerRow = sheet.createRow(currentRow);
-    	    if(list.size() == 0) {
-    	    	return ;
-    	    }
-          //通过反射获取Object实体对象的所有字段属性
-    	    for(Field field : list.get(0).getClass().getDeclaredFields()){
-            //获取字段上@Desc的注解内容
-    	    	Desc desc = field.getAnnotation(Desc.class);
-    	    	if(desc == null) {
-    	    		continue;
-    	    	}
-            //根据注解内容作为单元格标题
-    	    	XSSFRichTextString text  = new XSSFRichTextString(desc.value());
-    	    	Cell cell = headerRow.createCell(currentColumn);
-    	    	cell.setCellStyle(headerStyle);
-    	    	cell.setCellValue(text);
-    	    	currentColumn++;
-    	    }
-    	    //POPULATE VALUE ROWS/COLUMNS
-    	    if(list == null || list.size() == 0) {
-    			return ;
-    		}
-    	    currentRow++;//exclude header
-    	    try {
-    	    	for(Object obj : list){
-    		    	currentColumn = 0;
-    		    	Row row = sheet.createRow(currentRow++);
-    		    	Field[] fields = obj.getClass().getDeclaredFields();
-    		    	for(Field field : fields) {
-    		    		Desc desc = field.getAnnotation(Desc.class);
-    			    	if(desc == null) {
-    			    		continue;
-    			    	}
-    		    		Cell cell = row.createCell(currentColumn++);
-    		    		field.setAccessible(true);
-    		    		if(field.get(obj) == null) {
-    		    			continue;
-    		    		}
-                //根据字段的类型分别赋值
-    		    		if(field.getType() == int.class
-    		    				|| field.getType() == Integer.class
-    		    				|| field.getType() == long.class
-    		    				|| field.getType() == Long.class
-    		    				|| field.getType() == double.class
-    		    				|| field.getType() == Double.class
-    		    				|| field.getType() == float.class
-    		    				|| field.getType() == Float.class) {
-    		    			//数字类型
-    		    			cell.setCellType(Cell.CELL_TYPE_NUMERIC);
-    		    			cell.setCellValue(Double.valueOf(field.get(obj).toString()));
-    		    		}else {
-    		    			//非数字类型
-    		    			XSSFRichTextString text  = new XSSFRichTextString(field.get(obj).toString());
-    		    			cell.setCellValue(text);
-    		    		}
-    		    	}
-    		    }
-    		} catch (Exception e) {
-    			log.error(e);
-    		}
-    	}
-    }
+     	/**
+     	 * 创建单个Sheet的Excel
+     	 */
+     	public static void createExcelWithSingleSheet(Workbook workbook, String sheetName, List<?> list) {
+     		// BUILD DOC
+     		Sheet sheet = workbook.createSheet(sheetName);
+     		sheet.setDefaultColumnWidth(28);
+     		int currentRow = 0;
+     		int currentColumn = 0;
+     		// CREATE STYLE FOR HEADER
+     		CellStyle headerStyle = workbook.createCellStyle();
+     		Font font = workbook.createFont();
+     		font.setBold(true);
+     		font.setBoldweight(Font.BOLDWEIGHT_BOLD);
+     		headerStyle.setFont(font);
+     		// POPULATE HEADER COLUMNS
+     		Row headerRow = sheet.createRow(currentRow);
+     		if (list.size() == 0) {
+     			return;
+     		}
+     		for (Field field : list.get(0).getClass().getDeclaredFields()) {
+     			Desc desc = field.getAnnotation(Desc.class);
+     			if (desc == null) {
+     				continue;
+     			}
+     			XSSFRichTextString text = new XSSFRichTextString(desc.value());
+     			Cell cell = headerRow.createCell(currentColumn);
+     			cell.setCellStyle(headerStyle);
+     			cell.setCellValue(text);
+     			currentColumn++;
+     		}
+     		// POPULATE VALUE ROWS/COLUMNS
+     		if (list == null || list.size() == 0) {
+     			return;
+     		}
+     		currentRow++;// exclude header
+     		try {
+     			for (Object obj : list) {
+     				currentColumn = 0;
+     				Row row = sheet.createRow(currentRow++);
+     				Field[] fields = obj.getClass().getDeclaredFields();
+     				for (Field field : fields) {
+     					Desc desc = field.getAnnotation(Desc.class);
+     					if (desc == null) {
+     						continue;
+     					}
+     					Cell cell = row.createCell(currentColumn++);
+     					field.setAccessible(true);
+     					if (field.get(obj) == null) {
+     						continue;
+     					}
+     					if (field.getType() == int.class || field.getType() == Integer.class
+     							|| field.getType() == long.class || field.getType() == Long.class
+     							|| field.getType() == double.class || field.getType() == Double.class
+     							|| field.getType() == float.class || field.getType() == Float.class) {
+     						// 数字类型
+     						cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+     						cell.setCellValue(Double.valueOf(field.get(obj).toString()));
+     					} else {
+     						// 非数字类型
+     						XSSFRichTextString text = new XSSFRichTextString(field.get(obj).toString());
+     						cell.setCellValue(text);
+     					}
+     				}
+     			}
+     		} catch (Exception e) {
+     			log.error(e);
+     		}
+     	}
+     }
    ```
 4. ##### 待导出的excel对应的实体类对象 MyExcel.java
    ```java
