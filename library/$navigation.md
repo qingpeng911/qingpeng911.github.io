@@ -22,9 +22,11 @@
 - [Spring boot+spring AOP 实现拦截器打印日志](?file=java/SpringBoot+springAOP实现拦截器打印日志 "Spring boot + spring AOP 实现拦截器打印日志")
 - [使用Apache POI操作excel](?file=java/使用Apache POI操作excel "使用Apache POI操作excel")
 
-
 ##### spring data mongodb
 - [group聚合查询](?file=mongodb/SpringData mongodb group聚合查询 "group聚合查询")
+
+##### spring boot
+- [2分钟快速搭建spring boot项目](?file=spring boot/2分钟快速搭建spring boot + maven项目 "2分钟快速搭建spring boot + maven项目")
 
 ##### 实用技巧
 - [翻墙方法汇总（亲测可行）](?file=翻墙方法汇总（亲测可行） "翻墙方法汇总（亲测可行）")
