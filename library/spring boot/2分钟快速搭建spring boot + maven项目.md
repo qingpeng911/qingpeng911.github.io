@@ -15,7 +15,7 @@
 3. ##### 第二步：导入项目
    1.打开IDE，右键Import选择Maven--> Existing Maven Projects 下一步    
    ![img](https://qingpeng911.github.io/amWiki/images/article/7.png)  
-   2.选择解压后的项目的路径，继续
+   2.选择解压后的项目的路径，继续    
    ![img](https://qingpeng911.github.io/amWiki/images/article/8.png)    
    3.导入成功后的项目的目录结构，这里出现了一个版本冲突问题，修改后就可以了，到这里项目就成功搭建好了    
    ![img](https://qingpeng911.github.io/amWiki/images/article/9.png)    
