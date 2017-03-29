@@ -25,6 +25,9 @@
 - [Spring boot+spring AOP 实现拦截器打印日志](?file=java/SpringBoot+springAOP实现拦截器打印日志 "Spring boot + spring AOP 实现拦截器打印日志")
 - [使用Apache POI操作excel](?file=java/使用Apache POI操作excel "使用Apache POI操作excel")
 
+##### mysql
+- [mysql中文乱码常见解决](?file=mysql/mysql中文乱码常见解决 "mysql中文乱码常见解决")
+
 ##### spring data mongodb
 - [group聚合查询](?file=mongodb/SpringData mongodb group聚合查询 "group聚合查询")
 
