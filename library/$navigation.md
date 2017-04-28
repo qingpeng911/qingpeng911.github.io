@@ -25,6 +25,8 @@
 ##### Java
 - [Spring boot+spring AOP 实现拦截器打印日志](?file=java/SpringBoot+springAOP实现拦截器打印日志 "Spring boot + spring AOP 实现拦截器打印日志")
 - [使用Apache POI操作excel](?file=java/使用Apache POI操作excel "使用Apache POI操作excel")
+- [SpringBoot下的定时任务实现](?file=java/SpringBoot下的定时任务实现 "SpringBoot下的定时任务实现")
+- [概率抽奖实现](?file=java/概率抽奖实现 "概率抽奖实现")
 
 ##### mysql
 - [mysql中文乱码常见解决](?file=mysql/mysql中文乱码常见解决 "mysql中文乱码常见解决")
