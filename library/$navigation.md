@@ -18,6 +18,9 @@
 - [通用API接口文档示例](?file=002-文档示范/001-通用API接口文档示例 "通用API接口文档示例")
 - [超长文档页内目录示例](?file=002-文档示范/002-超长文档页内目录示例 "超长文档页内目录示例")
 
+##### freemarker
+- [freemarker热更新问题](?file=freemarker/freemarker热更新问题 "freemarker热更新问题")
+
 ##### Javascript
 - [JSONP实现跨域请求](?file=Javascript/JSONP实现跨域请求 "JSONP实现跨域请求")
 - [js+freemark实现select下拉框回显](?file=Javascript/js+freemark实现select下拉框回显 "js+freemark实现select下拉框回显")
