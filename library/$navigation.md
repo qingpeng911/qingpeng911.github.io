@@ -23,6 +23,7 @@
 
 ##### Javascript
 - [JSONP实现跨域请求](?file=Javascript/JSONP实现跨域请求 "JSONP实现跨域请求")
+- [js获取指定范围随机数出现浮点运算BUG处理](?file=Javascript/js获取指定范围随机数出现浮点运算BUG处理 "js获取指定范围随机数出现浮点运算BUG处理")
 - [js+freemark实现select下拉框回显](?file=Javascript/js+freemark实现select下拉框回显 "js+freemark实现select下拉框回显")
 
 ##### Java
