@@ -29,6 +29,7 @@
 ##### Java
 - [Spring boot+spring AOP 实现拦截器打印日志](?file=java/SpringBoot+springAOP实现拦截器打印日志 "Spring boot + spring AOP 实现拦截器打印日志")
 - [使用Apache POI操作excel](?file=java/使用Apache POI操作excel "使用Apache POI操作excel")
+- [静态工具类中注入service](?file=java/静态工具类中注入service "静态工具类中注入service")
 - [SpringBoot下的定时任务实现](?file=java/SpringBoot下的定时任务实现 "SpringBoot下的定时任务实现")
 - [概率抽奖实现](?file=java/概率抽奖实现 "概率抽奖实现")
 
