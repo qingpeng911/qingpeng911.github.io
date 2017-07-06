@@ -12,29 +12,40 @@
    import org.springframework.beans.factory.annotation.Autowired;
    import org.springframework.stereotype.Component;
 
-   import com.dsy.model.AdminUser;
-   import com.dsy.service.AdminUserService;
+   import com.demo.constant.SessionConstant;
+   import com.demo.model.AdminUser;
+   import com.demo.service.AdminUserService;
 
    @Component
    public class AdminUserUtil {
 
+    @Autowired
+   	private HttpSession session;
    	@Autowired
    	private AdminUserService adminUserService;
    	private static AdminUserUtil adminUserUtil;
 
    	@PostConstruct
    	private void init() {
-   		adminUserUtil = this;
-   		adminUserUtil.adminUserService = this.adminUserService;
+      adminUserUtil = this;
+  		adminUserUtil.adminUserService = this.adminUserService;
+  		adminUserUtil.session = this.session;
    	}
 
-   	/**
-   	 * 根据session中的userid获取User
-   	 */
-   	public static AdminUser getUser(HttpSession session) {
-   		String userId = (String) session.getAttribute("uid");
-   		return adminUserUtil.adminUserService.findById(userId);
-   	}
+    /**
+  	 * 根据session获取最新的AdminUser
+  	 */
+  	public static AdminUser getUser(){
+  		String uid = ((AdminUser) adminUserUtil.session.getAttribute(SessionConstant.ADMIN)).getId();
+  		return adminUserUtil.adminUserService.findById(uid);
+  	}
+
+    /**
+     * 从session中移除已登录的AdminUser
+     */
+    public static void removeSessionAdminUser() {
+      adminUserUtil.session.removeAttribute(SessionConstant.ADMIN);
+    }
 
    }
    ```
