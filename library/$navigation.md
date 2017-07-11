@@ -32,6 +32,7 @@
 - [静态工具类中注入service](?file=java/静态工具类中注入service "静态工具类中注入service")
 - [SpringBoot下的定时任务实现](?file=java/SpringBoot下的定时任务实现 "SpringBoot下的定时任务实现")
 - [概率抽奖实现](?file=java/概率抽奖实现 "概率抽奖实现")
+- [java程序下载文件到C盘保存失败问题解决](?file=java/java程序下载文件到C盘保存失败问题解决 "java程序下载文件到C盘保存失败问题解决")
 
 ##### mysql
 - [mysql中文乱码常见解决](?file=mysql/mysql中文乱码常见解决 "mysql中文乱码常见解决")
