@@ -33,6 +33,7 @@
 - [SpringBoot下的定时任务实现](?file=java/SpringBoot下的定时任务实现 "SpringBoot下的定时任务实现")
 - [概率抽奖实现](?file=java/概率抽奖实现 "概率抽奖实现")
 - [java程序下载文件到C盘保存失败问题解决](?file=java/java程序下载文件到C盘保存失败问题解决 "java程序下载文件到C盘保存失败问题解决")
+- [springmvc @PathVariable参数非必传时的处理办法](?file=java/springmvc @PathVariable参数非必传时的处理办法 "springmvc @PathVariable参数非必传时的处理办法")
 
 ##### mysql
 - [mysql中文乱码常见解决](?file=mysql/mysql中文乱码常见解决 "mysql中文乱码常见解决")
