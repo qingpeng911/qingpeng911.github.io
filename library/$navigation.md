@@ -46,6 +46,7 @@
 - [Freemarker配置全局变量](?file=spring boot/Freemarker配置全局变量 "Freemarker配置全局变量")
 
 ##### Vue
+- [快速搭建Vue单页应用Vue+Webpack+vueRouter](?file=Vue/快速搭建Vue单页应用Vue+Webpack+vueRouter "快速搭建Vue单页应用Vue+Webpack+vueRouter")
 
 ##### 实用技巧
 - [翻墙方法汇总（亲测可行）](?file=翻墙方法汇总（亲测可行） "翻墙方法汇总（亲测可行）")
