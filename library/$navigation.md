@@ -45,5 +45,7 @@
 - [2分钟快速搭建spring boot项目](?file=spring boot/2分钟快速搭建spring boot + maven项目 "2分钟快速搭建spring boot + maven项目")
 - [Freemarker配置全局变量](?file=spring boot/Freemarker配置全局变量 "Freemarker配置全局变量")
 
+##### Vue
+
 ##### 实用技巧
 - [翻墙方法汇总（亲测可行）](?file=翻墙方法汇总（亲测可行） "翻墙方法汇总（亲测可行）")
